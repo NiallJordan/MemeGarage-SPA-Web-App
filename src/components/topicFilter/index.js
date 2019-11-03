@@ -6,7 +6,7 @@ export default class Filter extends Component{
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-1">
                         <ul class="nav">
                             <li><a class="label" href="/hot"><i class="glyphicon glyphicon-fire"></i> Hot</a></li>
                             <li><a class="label" href="/trending"><i class="glyphicon glyphicon-stats"></i> Trending</a></li>
