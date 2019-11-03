@@ -1,19 +1,19 @@
 import React, { Component } from "react";
+import "./header.css"
 
 class Header extends Component{
     render(){
         return(
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-6 offset-4">
-                        <div className="page-header">
-                            <h1>
-                                Author Depository
-                            </h1>
-                        </div>
-                    </div>
+            <header id="top-nav">
+                <div class="nav-wrap">
+                    <h1>Meme<span class="bold">Garage</span></h1>
+                    <nav class="nav-menu">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </nav>
                 </div>
-            </div>
+            </header>
         );
     }
 }
