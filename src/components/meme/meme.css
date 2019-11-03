@@ -1,0 +1,57 @@
+.post-thread-section{
+    height: 20px;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.threadIcon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    margin-right: 4px;
+    overflow: hidden;
+}
+
+img{
+    width: 100%;
+}
+
+.threadTitle{
+    display: inline-block;
+    line-height: 20px;
+}
+
+.postedBy{
+    color: #999;
+    font-size: 10px;
+}
+.post-img{
+    max-height: 888px;
+    max-width: 400px;
+}
+
+.post-meta{
+    padding: 5px;
+    width: 400px;
+}
+
+.comments{
+    padding: 2px;
+    float: right;
+}
+
+.left{
+    float: left !important;
+}
+
+.up {
+    padding: 2px;
+}
+
+.down{
+    padding-left: 2px;
+}
+

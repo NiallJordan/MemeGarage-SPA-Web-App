@@ -1,6 +1,5 @@
-li{
-    background-color: lightgrey;
+.nav{
     color: black;
     border-radius: 5px;
-    margin: 2px;
+    list-style: none;
 }
