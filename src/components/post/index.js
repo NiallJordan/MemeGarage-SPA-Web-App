@@ -3,8 +3,8 @@ import './post.css';
 
 export default class Post extends Component{
     render(){
-    let postTitle = this.props.post.link?(
-            <a href={this.props.post.link}>{this.props.post.title}</a>
+    let postTitle = this.props.post.thread?(
+            <a href={this.props.post.thread}>{this.props.post.title}</a>
         ):(
             <span>{this.props.post.title}</span>
         );
@@ -12,7 +12,7 @@ export default class Post extends Component{
             <article>
                 <div class="post-thread-section">
                         <a class="threadIcon" href="">
-                            <img src="https://accounts-cdn.9gag.com/media/default-avatar/1_77_100_v0.jpg"></img>
+                            <img src={`${this.props.post.thumbnail}`} ></img>
                         </a>
                         <p class="threadTitle">
                             <a class="title" target="_blanck" href="">Title of thread goes here</a>
