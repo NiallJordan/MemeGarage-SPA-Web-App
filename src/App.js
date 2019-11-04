@@ -1,48 +1,83 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import PostList from './components/postList';
+import Filter from './components/topicFilter';
+import Header from './components/header';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
 render() {
-    const modules = [
+    const testPosts = [
     {
-        name: "Web Dev",
-        noLectures: 1,
-        noPracticals: 2
+        id:1,
+        title:'Post 1',
+        thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
+        link:'https://www.foaas.com/',
+        user:'cunt',
+        comments:[],
+        upvote:20,
+        downvote:5
+
     },
     {
-        name: "Programming",
-        noLectures: 2,
-        noPracticals: 3
+        id:2,
+        title:'Post 2',
+        thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
+        link:'https://www.foaas.com/',
+        user:'cunt',
+        comments:[],
+        upvote:20,
+        downvote:5
     },
     {
-        name: "Database Systems",
-        noLectures: 2,
-        noPracticals: 2
+        id:3,
+        title:'Post 3',
+        thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
+        link:'https://www.foaas.com/',
+        user:'cunt',
+        comments:[],
+        upvote:20,
+        downvote:5
     },
     {
-        name: "DevOps",
-        noLectures: 2,
-        noPracticals: 2
+        id:4,
+        title:'Post 1',
+        thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
+        link:'https://www.foaas.com/',
+        user:'cunt',
+        comments:[],
+        upvote:20,
+        downvote:5
     },
     {
-        name: "Enterprise Web Dev",
-        noLectures: 2,
-        noPracticals: 3
+        id:5,
+        title:'Post 1',
+        thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
+        link:'https://www.foaas.com/',
+        user:'cunt',
+        comments:[],
+        upvote:20,
+        downvote:5
     }
     ];
-    let name = "HDip Computer Systems";
-
     return (
-    <div>
-        <header className="App-header">
-            <img src={witCrest} alt="logo" />
-        </header>
-        <div className="course">
-            <Course title={name} modules={modules} />
+    <div class="">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12">
+                    <Header />
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-md-3">
+                    <Filter />
+                </div>
+                <div class="col-md-8">
+                    <PostList posts={testPosts} />
+                </div>
+            </div>
         </div>
     </div>
     );
 }
 }
-export default App;
