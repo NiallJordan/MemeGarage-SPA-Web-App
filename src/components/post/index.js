@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import './meme.css';
+import './post.css';
 
-export default class Meme extends Component{
+export default class Post extends Component{
     render(){
-        let memeTitle = this.props.meme.link?(
-            <a href={this.props.meme.link}>{this.props.meme.title}</a>
+    let postTitle = this.props.post.link?(
+            <a href={this.props.post.link}>{this.props.post.title}</a>
         ):(
-            <span>{this.props.meme.title}</span>
+            <span>{this.props.post.title}</span>
         );
         return(
             <article>
@@ -20,25 +20,24 @@ export default class Meme extends Component{
                 </div>
                 <header>
                     <div>
-                        {memeTitle}
-                        <span class="postedBy" > Posted by {`${this.props.meme.user}`} </span>
+                        {postTitle}
+                        <span class="postedBy" > Posted by {`${this.props.post.user}`} </span>
                     </div>
                 </header>
                 <div className="post-body">
                     <div id="thumbnail-div">
-                        <img className="post-img center" alt={this.props.meme.name} src={this.props.meme.thumbnail}></img>
+                        <img className="post-img center" alt={this.props.post.name} src={this.props.post.thumbnail}></img>
                     </div>
                     <p className="post-meta">
                         <div class="vote-buttons left">
                             <a class="up" >
                                 <span class="glyphicon glyphicon-thumbs-up"></span>
-                                {`${this.props.meme.upvote}`}
                             </a>
-
+                            {`${this.props.post.upvote}`}
                             <a class="down">
                                 <span class="glyphicon glyphicon-thumbs-down"></span>
-                                {`${this.props.meme.downvote}`}
                             </a>
+                            {`${this.props.post.downvote}`}
                         </div>
                         <span className="comments">
                             <a href="/">Comments</a>

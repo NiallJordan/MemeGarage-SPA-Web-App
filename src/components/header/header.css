@@ -2,6 +2,18 @@ h1{
     font-family: monospace;
 }
 
-.bold{
-    font-weight: bold;
+.top-nav{
+    background-color: #000;
+    width: 100%;
+    position: fixed;
+}
+.nav-wrap{
+    margin: 0 auto;
+}
+
+
+
+.btn-edit, .btn-search {
+    height: 30px;
+    float: right;
 }

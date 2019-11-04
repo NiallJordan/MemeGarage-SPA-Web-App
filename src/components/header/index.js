@@ -6,12 +6,14 @@ class Header extends Component{
         return(
             <header id="top-nav">
                 <div class="nav-wrap">
-                    <h1>Meme<span class="bold">Garage</span></h1>
                     <nav class="nav-menu">
-                        <button type="button" class="btn btn-search">
+                        <div class="webName">
+                            <h1>Meme<b>Garage</b></h1>
+                        </div>
+                        <button type="button" class="btn-search">
                         <span class="glyphicon glyphicon-search"></span>
                         </button>
-                        <button type="button" class="btn btn-button">
+                        <button type="button" class="btn-edit">
                             <span class="glyphicon glyphicon-edit"></span>
                         </button>
                     </nav>
