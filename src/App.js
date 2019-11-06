@@ -9,6 +9,10 @@ import './App.css';
 import _ from 'lodash';
 
 export default class App extends Component {
+    addPost = (title,user, image,thread) => {
+        api.add(title,user,image,thread);
+        this.setState({});
+    };
     increasePoints= (id) => {
         api.increasePoints(id);
         this.setState({});
@@ -38,7 +42,7 @@ export default class App extends Component {
                         downvoteHandler={this.decreasePoints} />
                     </div>
                     <div className ="col-md-3 form-container">
-                        <Form/>
+                        <Form handleAdd={this.addPost}/>
                     </div>
                 </div>
             </div>
