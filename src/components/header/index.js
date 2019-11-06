@@ -5,16 +5,16 @@ class Header extends Component{
     render(){
         return(
             <header id="top-nav">
-                <div class="nav-wrap">
-                    <nav class="nav-menu">
-                        <div class="webName">
+                <div className="nav-wrap">
+                    <nav className="nav-menu">
+                        <div className="webName col-md-2">
                             <h1>Meme<b>Garage</b></h1>
                         </div>
-                        <button type="button" class="btn-search">
-                        <span class="glyphicon glyphicon-search"></span>
+                        <button type="button" className="btn-search">
+                        <span className="glyphicon glyphicon-search"></span>
                         </button>
-                        <button type="button" class="btn-edit">
-                            <span class="glyphicon glyphicon-edit"></span>
+                        <button type="button" className="btn-edit">
+                            <span className="glyphicon glyphicon-edit"></span>
                         </button>
                     </nav>
                 </div>

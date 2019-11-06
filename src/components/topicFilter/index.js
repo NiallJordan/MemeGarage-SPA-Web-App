@@ -7,10 +7,10 @@ export default class Filter extends Component{
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
-                        <ul class="nav">
-                            <li><a class="hot" href="/hot"><i class="glyphicon glyphicon-fire"></i> Hot</a></li>
-                            <li><a class="trending" href="/trending"><i class="glyphicon glyphicon-stats"></i> Trending</a></li>
-                            <li><a class="new" href="/new"><i class="glyphicon glyphicon-upload"></i> New</a></li>
+                        <ul className="nav">
+                            <li><a className="hot" href="/hot"><i className="glyphicon glyphicon-fire"></i> Hot</a></li>
+                            <li><a className="trending" href="/trending"><i className="glyphicon glyphicon-stats"></i> Trending</a></li>
+                            <li><a className="new" href="/new"><i className="glyphicon glyphicon-upload"></i> New</a></li>
                         </ul>
                     </div>
                 </div>

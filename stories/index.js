@@ -6,6 +6,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import { action } from '@storybook/addon-actions';
+import Form from '../src/components/postForm';
 
 const post ={
     id:1,
@@ -22,7 +23,11 @@ storiesOf("MemeGarage/Header",module).add("default",() => ( <Header/> ));
 
 storiesOf("MemeGarageApp/Filter",module).add("default",() => ( <Filter/> ));
 
-storiesOf("MemeGarageApp/Post",module).add("default",() => ( <Post post={post}/>));
+storiesOf("MemeGarageApp/Post",module)
+.add("default",() => <Post post={post} handlerUpvote={action("upvoted")} />)
+.add("No hyperlink",() => <Post post={{...post,thread:""}} handlerUpvote={action("upvoted")} />)
+.add("default", () => <Post post={post} handlerDownvote={action("downvoted")}/>)
+.add("No hyperlink", () => <Post post={{...post,thread:""}}handlerDownvote={action("downvoted")}/>);
 
 storiesOf('MemeGarageApp/Post List',module).add('default', () => {
     const defaultPosts= [
@@ -33,3 +38,5 @@ storiesOf('MemeGarageApp/Post List',module).add('default', () => {
     ];
     return <PostList posts={defaultPosts} />
 });
+
+storiesOf("MemeGarageApp/Post Form",module).add("default",() => ( <Form/>));

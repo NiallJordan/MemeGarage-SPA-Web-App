@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './post.css';
 
 export default class Post extends Component{
+    handleVote = () =>  this.props.upvoteHandler(this.props.post.id);
+    handleDownVote= () => this.props.downvoteHandler(this.props.post.id);
     render(){
     let postTitle = this.props.post.thread?(
             <a href={this.props.post.thread}>{this.props.post.title}</a>
@@ -10,18 +12,18 @@ export default class Post extends Component{
         );
         return(
             <article>
-                <div class="post-thread-section">
-                        <a class="threadIcon" href="">
-                            <img src={`${this.props.post.thumbnail}`} ></img>
+                <div className="post-thread-section">
+                        <a className="threadIcon" href="">
+                            icon
                         </a>
-                        <p class="threadTitle">
-                            <a class="title" target="_blanck" href="">Title of thread goes here</a>
+                        <p className="threadTitle">
+                            <a className="title" target="_blanck" href="">Title of thread goes here</a>
                         </p>
                 </div>
                 <header>
                     <div>
                         {postTitle}
-                        <span class="postedBy" > Posted by {`${this.props.post.user}`} </span>
+                        <span className="postedBy" > Posted by {`${this.props.post.user}`} </span>
                     </div>
                 </header>
                 <div className="post-body">
@@ -29,15 +31,15 @@ export default class Post extends Component{
                         <img className="post-img center" alt={this.props.post.name} src={this.props.post.thumbnail}></img>
                     </div>
                     <p className="post-meta">
-                        <div class="vote-buttons left">
-                            <a class="up" >
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                        <div className="vote-buttons left">
+                            <a className="up">
+                                <span className="glyphicon glyphicon-thumbs-up" onClick={this.handleVote}></span>
                             </a>
-                            {`${this.props.post.upvote}`}
-                            <a class="down">
-                                <span class="glyphicon glyphicon-thumbs-down"></span>
+                            {`${this.props.post.points}`}
+                            <a className="down">
+                                <span className="glyphicon glyphicon-thumbs-down" onClick={this.handleDownVote}></span>
                             </a>
-                            {`${this.props.post.downvote}`}
+
                         </div>
                         <span className="comments">
                             <a href="/">Comments</a>

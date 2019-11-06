@@ -7,51 +7,51 @@ class StubAPI {
                 id:1,
                 title:'Post 1',
                 thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
-                thread:'https://www.foaas.com/',
+                thread:'/',
+                imageUrl:'',
                 user:'cunt',
                 comments:[],
-                upvotes:20,
-                downvotes:5
+                points:0
             },
             {
                 id:2,
                 title:'Post 2',
                 thumbnail:'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thrillist.com%2Fentertainment%2Fnation%2Fbest-memes-2019&psig=AOvVaw1ngSjsC1HNg7Z2wmZBI5sv&ust=1572976623015000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICNwNmQ0eUCFQAAAAAdAAAAABAD',
-                thread:'https://www.foaas.com/',
+                thread:'/',
+                imageUrl:'',
                 user:'cunt',
                 comments:[],
-                upvotes:20,
-                downvotes:5
+                points:0
             },
             {
                 id:3,
                 title:'Post 3',
                 thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
                 thread:'https://www.foaas.com/',
+                imageUrl:'/',
                 user:'cunt',
                 comments:[],
-                upvotes:20,
-                downvotes:5
+                points:0
             },
             {
                 id:4,
                 title:'Post 4',
                 thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
                 thread:'https://www.foaas.com/',
+                imageUrl:'/',
                 user:'cunt',
                 comments:[],
-                upvotes:20,
-                downvotes:5
+                points:0
             },
             {
                 id:5,
                 title:'Post 5',
                 thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
                 thread:'https://www.foaas.com/',
+                imageUrl:'/',
                 user:'cunt',
                 comments:[],
-                upvotes:20,
-                downvotes:5
+                points:0
             }
         ];
     }
@@ -74,25 +74,24 @@ class StubAPI {
             user,
             thread,
             comments:[],
-            upvotes: 0,
-            downvotes:0
+            points:0
         });
         return newNumberOfPosts > numberOfPosts;
     }
 
-    upvote(id){
+    increasePoints(id){
         let index = _.findIndex(this.posts,post => post.id === id);
         if(index !== -1){
-            this.post[index].upvotes += 1;
+            this.posts[index].points += 1;
             return true;
         }
         return false;
     }
 
-    downvote(id){
+    decreasePoints(id){
         let index = _.findIndex(this.posts,post => post.id === id);
         if(index !== -1){
-            this.post[index].upvotes -= 1;
+            this.posts[index].points -= 1;
             return true;
         }
         return false;
