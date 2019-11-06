@@ -47,11 +47,7 @@ img{
     float: left !important;
 }
 
-.up {
+.glphyicon{
     padding: 2px;
+    cursor:  pointer;
 }
-
-.down{
-    padding-left: 2px;
-}
-

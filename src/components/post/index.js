@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './post.css';
 
 export default class Post extends Component{
-    handleVote = () =>  this.props.upvoteHandler(this.props.post.id);
-    handleDownVote= () => this.props.downvoteHandler(this.props.post.id);
+    handleVote = () =>  {this.props.upvoteHandler(this.props.post.id);};
+    handleDownVote= () => {this.props.downvoteHandler(this.props.post.id);};
     render(){
     let postTitle = this.props.post.thread?(
             <a href={this.props.post.thread}>{this.props.post.title}</a>
@@ -32,14 +32,9 @@ export default class Post extends Component{
                     </div>
                     <p className="post-meta">
                         <div className="vote-buttons left">
-                            <a className="up">
-                                <span className="glyphicon glyphicon-thumbs-up" onClick={this.handleVote}></span>
-                            </a>
+                            <span className="glyphicon glyphicon-thumbs-up" onClick={this.handleVote}></span>
                             {`${this.props.post.points}`}
-                            <a className="down">
-                                <span className="glyphicon glyphicon-thumbs-down" onClick={this.handleDownVote}></span>
-                            </a>
-
+                            <span className="glyphicon glyphicon-thumbs-down" onClick={this.handleDownVote}></span>
                         </div>
                         <span className="comments">
                             <a href="/">Comments</a>
