@@ -3,12 +3,13 @@ import Post from '../post';
 
 export default class PostList extends Component{
     render(){
-        let posts = this.props.posts.map((post,index) =>
+        const posts = this.props.posts.map(post =>
             <Post
             key={post.id}
             post={post}
             upvoteHandler = {this.props.upvoteHandler}
-            downvoteHandler = {this.props.downvoteHandler}/>
+            downvoteHandler = {this.props.downvoteHandler}
+            deleteHandler={this.props.deleteHandler}/>
         );
         return (
             <div className="main-coloumn">

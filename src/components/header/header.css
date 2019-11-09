@@ -2,18 +2,8 @@ h1{
     font-family: monospace;
 }
 
-.top-nav{
-    background-color: #000;
-    width: 100%;
-    position: fixed;
-}
-.nav-wrap{
-    margin: 0 auto;
+.dark-bar{
+    background-color:whitesmoke;
+    text-decoration: none;
 }
 
-
-
-.btn-edit, .btn-search {
-    height: 30px;
-    float: right;
-}

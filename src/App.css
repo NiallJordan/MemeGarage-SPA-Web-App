@@ -9,6 +9,28 @@
   padding: 10px;
 }
 
+.container-fluid{
+  width: 1196px;
+padding: 0px 16px 32px;
+
+position: relative;
+}
+
+.sidebar{
+  width: 192px;
+height: calc(100% - 48px);
+position: fixed;
+z-index: 1;
+overflow: hidden;
+overscroll-behavior: contain;
+}
+
 .post-list-container{
-  
+  width: 972px;
+margin: 0 0 0 224px;
+}
+
+.form-container{
+  float: right;
+  position: relative;
 }

@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import CommentPage from "./components/commentComponents/commentPage";
+import Header from './components/header';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const Router = (props) => {
+    return(
+        <BrowserRouter>
+                <Switch>
+                    <Route path="/posts/:post_id" component = {CommentPage}/>
+                    <Route exact path="/" component={App}/>
+                    <Redirect from="*" to="/"/>
+                </Switch>
+        </BrowserRouter>
+    );
+};
+ReactDOM.render(<Router />, document.getElementById('root'));
+

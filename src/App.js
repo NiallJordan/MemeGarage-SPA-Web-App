@@ -3,16 +3,38 @@ import PostList from './components/postList';
 import Filter from './components/topicFilter';
 import Header from './components/header';
 import Form from './components/postForm';
+import request from "superagent";
 import api from './dataStore/stubAPI';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import _ from 'lodash';
+import localCache from './localCache';
 
 export default class App extends Component {
+    componentDidMount(){
+        request.get("http://localhost:3001/posts").end((err,res) => {
+            if(res){
+                let { results : posts} = JSON.parse(res.text);
+                api.initialize(posts);
+                //localCache.populate(posts.json);
+                this.setState({});
+            }else{
+                console.log(err);
+            }
+        });
+    }
+
     addPost = (title,user, image,thread) => {
         api.add(title,user,image,thread);
         this.setState({});
     };
+
+    deletePost=(key) =>{
+        api.deletePost(key);
+        this.setState({});
+    };
+
+
     increasePoints= (id) => {
         api.increasePoints(id);
         this.setState({});
@@ -23,25 +45,23 @@ export default class App extends Component {
     };
 
     render() {
-        let posts = _.sortBy(api.getPosts(), post => -post.points);
+        let posts = api.getPosts();
+        let updatedPosts = localCache.getAll()
         return (
         <div className="page-container">
+            <Header/>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-12">
-                        <Header />
-                    </div>
-                </div>
-                <div className="row">
-                    <nav className ="col-md-1 filter-nav">
+                    <div className="sidebar">
                         <Filter />
-                    </nav>
+                    </div>
                     <div className="col-md-8 post-list-container">
                         <PostList posts={posts}
                         upvoteHandler={this.increasePoints}
-                        downvoteHandler={this.decreasePoints} />
+                        downvoteHandler={this.decreasePoints}
+                        deleteHandler={this.deletePost} />
                     </div>
-                    <div className ="col-md-3 form-container">
+                    <div className ="form-container">
                         <Form handleAdd={this.addPost}/>
                     </div>
                 </div>

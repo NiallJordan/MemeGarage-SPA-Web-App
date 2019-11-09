@@ -4,56 +4,20 @@ class StubAPI {
     constructor() {
         this.posts = [
             {
-                id:1,
-                title:'Post 1',
-                thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
-                thread:'/',
-                imageUrl:'',
-                user:'cunt',
-                comments:[],
-                points:0
-            },
-            {
-                id:2,
-                title:'Post 2',
-                thumbnail:'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thrillist.com%2Fentertainment%2Fnation%2Fbest-memes-2019&psig=AOvVaw1ngSjsC1HNg7Z2wmZBI5sv&ust=1572976623015000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICNwNmQ0eUCFQAAAAAdAAAAABAD',
-                thread:'/',
-                imageUrl:'',
-                user:'cunt',
-                comments:[],
-                points:0
-            },
-            {
-                id:3,
-                title:'Post 3',
-                thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
-                thread:'https://www.foaas.com/',
-                imageUrl:'/',
-                user:'cunt',
-                comments:[],
-                points:0
-            },
-            {
-                id:4,
-                title:'Post 4',
-                thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
-                thread:'https://www.foaas.com/',
-                imageUrl:'/',
-                user:'cunt',
-                comments:[],
-                points:0
-            },
-            {
-                id:5,
-                title:'Post 5',
-                thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
-                thread:'https://www.foaas.com/',
-                imageUrl:'/',
-                user:'cunt',
-                comments:[],
-                points:0
+                "id":1,
+                "title":"Post 1",
+                "thumbnail":"https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681",
+                "thread":"/funny",
+                "imageUrl":"https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681",
+                "user":"cunt",
+                "comments":[],
+                "points":0
             }
         ];
+    }
+
+    initialize(posts){
+        this.posts=posts;
     }
 
     getPosts(){
@@ -77,6 +41,19 @@ class StubAPI {
             points:0
         });
         return newNumberOfPosts > numberOfPosts;
+    }
+    update(key, title){
+        let index = _.findIndex(this.posts, post => post.id === key);
+        if (index !== -1){
+            this.posts[index].title = title;
+            return true;
+        }
+        return false;
+    }
+
+    deletePost(id){
+        let elements = _.remove(this.posts, post => post.id === id);
+        return elements
     }
 
     increasePoints(id){
@@ -111,6 +88,15 @@ class StubAPI {
             id= last.id + 1;
         }
         post.comments.push({id:id,comment : com, user: userName,upvotes:0,downvotes:0});
+    }
+
+    upvoteComment(commentid){
+        let index = _.findIndex(this.posts.comment,comment => comment.id === commentid);
+            if(index !== -1){
+                this.posts.comment[index].points += 1;
+                return true;
+            }
+            return false;
     }
 }
 
