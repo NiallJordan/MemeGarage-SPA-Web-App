@@ -7,6 +7,7 @@ import Form from '../src/components/postForm';
 import CommentForm from "../src/components/commentComponents/commentForm"
 import Comment from "../src/components/commentComponents/comment"
 import CommentList from "../src/components/commentComponents/commentList"
+import LoginForm from "../src/components/loginComponents/loginForm";
 
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
@@ -19,7 +20,9 @@ const post ={
     thumbnail:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/05/11/tnol8.jpg?w968h681',
     link:'https://www.foaas.com/',
     user:'harold',
-    comments:[],
+    comments:[
+
+    ],
     points:4
 };
 const comment ={
@@ -37,7 +40,8 @@ storiesOf("MemeGarage App/Post",module)
 .add("default",() => <Post post={post} handlerUpvote={action("upvoted")} />)
 .add("No hyperlink",() => <Post post={{...post,thread:""}} handlerUpvote={action("upvoted")} />)
 .add("default", () => <Post post={post} handlerDownvote={action("downvoted")}/>)
-.add("No hyperlink", () => <Post post={{...post,thread:""}}handlerDownvote={action("downvoted")}/>);
+.add("No hyperlink", () => <Post post={{...post,thread:""}}handlerDownvote={action("downvoted")}/>)
+.add("default", () => <Post post={post} deleteHandler={action('Delete confirmed')}/>);
 
 storiesOf('MemeGarage App/Post List',module).add('default', () => {
     const defaultPosts= [
@@ -55,11 +59,11 @@ storiesOf("MemeGarage App/Comments/Comment Form",module).add("default", () => (
     <CommentForm post ={post} addCommentHandler={action("comment added")} />
     ));
 
-storiesOf("MemeGarage App.Comments/Comment", module).add("default", () => (
+storiesOf("MemeGarage App/Comments/Comment", module).add("default", () => (
     <Comment upvoteHandler= {action("upvoted")} comment={comment} />
 ));
 
-storiesOf("MemeGarage App.Comments/Comment", module).add("default", () => (
+storiesOf("MemeGarage App/Comments/Comment", module).add("default", () => (
     <Comment downvoteHandler= {action("downvoted")} comment={comment} />
 ));
 
@@ -71,6 +75,11 @@ storiesOf("MemeGarage App/Comments/Comment List",module).add("default",() => {
         {...comment,user:"harold", points:5,id:4}
     ];
     return (
-        <CommentList upvoteHandler={action("upvoted")} comments={exampleComments} />
+        <div>
+            <CommentList upvoteHandler={action("upvoted")} comments={exampleComments} />
+            <CommentList downvoteHandler= {action("downvoted")} comment={exampleComment}/>
+        </div>
     );
 });
+
+storiesOf("MemeGarage App/Login",module).add("default",() => ( <LoginForm/>));

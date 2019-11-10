@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import './post.css';
 import buttons from "../../config/buttonsConfig";
-import { appendFileSync } from 'fs';
+//import { appendFileSync } from 'fs';
 import api from '../../dataStore/stubAPI';
 
 export default class Post extends Component{
@@ -64,6 +64,7 @@ export default class Post extends Component{
                             <a className="thread" target="_blank" href="">{this.props.post.thread}</a>
                         </p>
                 </div>
+                <div>
                 {this.state.status === "edit" ?(
                     <header>
                         <div>
@@ -79,6 +80,7 @@ export default class Post extends Component{
                     </div>
                 </header>
                 )}
+                </div>
                 <div className="post-body">
                     <div id="image-div">
                     <img className="post-img center" alt={this.props.post.title} src={this.props.post.imageUrl}></img>

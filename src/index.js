@@ -7,6 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 import CommentPage from "./components/commentComponents/commentPage";
 import Header from './components/header';
+import hotFilteredPage from './components/hotFilteredPage';
 
 const Router = (props) => {
     return(
@@ -14,6 +15,7 @@ const Router = (props) => {
                 <Switch>
                     <Route path="/posts/:post_id" component = {CommentPage}/>
                     <Route exact path="/" component={App}/>
+                    <Route path="/hot" component = {hotFilteredPage}/>
                     <Redirect from="*" to="/"/>
                 </Switch>
         </BrowserRouter>

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import PostList from './components/postList';
-import Filter from './components/topicFilter';
-import Header from './components/header';
-import Form from './components/postForm';
+import PostList from './postList';
+import Filter from './topicFilter';
+import Header from './header';
+import Form from './postForm';
 import request from "superagent";
-import api from './dataStore/stubAPI';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import api from '../dataStore/stubAPI';
+import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import _ from 'lodash';
-import localCache from './localCache';
+import localCache from '../localCache';
+import { withRouter } from 'react-router-dom';
 
-export default class App extends Component {
+class HotFilteredPage extends Component {
     componentDidMount(){
         request.get("http://localhost:3001/posts").end((err,res) => {
             if(res){
@@ -44,7 +44,7 @@ export default class App extends Component {
     };
 
     render() {
-        let posts = api.getPosts();
+        let posts = _.sortBy(api.getPosts(),post => -post.points);
         let updatedPosts = localCache.getAll()
         return (
         <div className="page-container">
@@ -54,16 +54,14 @@ export default class App extends Component {
                     <div className="sidebar">
                         <Filter />
                     </div>
-                    <div className="contwrap">
-                        <div className="post-list-container">
-                            <PostList posts={posts}
-                            upvoteHandler={this.increasePoints}
-                            downvoteHandler={this.decreasePoints}
-                            deleteHandler={this.deletePost} />
-                        </div>
-                        <div className ="form-container">
-                            <Form handleAdd={this.addPost}/>
-                        </div>
+                    <div className="post-list-container">
+                        <PostList posts={posts}
+                        upvoteHandler={this.increasePoints}
+                        downvoteHandler={this.decreasePoints}
+                        deleteHandler={this.deletePost} />
+                    </div>
+                    <div className ="form-container">
+                        <Form handleAdd={this.addPost}/>
                     </div>
                 </div>
             </div>
@@ -71,3 +69,4 @@ export default class App extends Component {
         );
     }
 }
+export default withRouter(HotFilteredPage);

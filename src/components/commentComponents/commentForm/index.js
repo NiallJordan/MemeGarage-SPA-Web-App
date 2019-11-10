@@ -3,7 +3,9 @@ import React, {Component } from 'react';
 export default class CommentForm extends Component{
     state = {comment:"", user:""};
     handleCommentChange = (e) => {this.setState({comment: e.target.value})};
+
     handleUsernameChange = (e) => {this.setState({user: e.target.value})};
+    
     submitComment= (e) =>{
         e.preventDefault();
         let comment = this.state.comment.trim();
