@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import "./header.css";
 
 class Header extends Component{
@@ -9,7 +10,7 @@ class Header extends Component{
                 <Navbar.Brand href="/">Meme<b>Garage</b></Navbar.Brand>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <NavItem title="Login" id="basic-nav-item" href>Login</NavItem>
+                        <Link title="Login" to="/login" id="basic-nav-item" >Login</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

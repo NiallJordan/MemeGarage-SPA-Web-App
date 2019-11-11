@@ -1,0 +1,32 @@
+.container-fluid{
+    padding: 0px 16px 32px;
+    margin-left: 20%;
+    position: relative;
+  }
+
+.sidebar{
+width: 192px;
+height: calc(100% - 48px);
+position: fixed;
+z-index: 1;
+overflow: hidden;
+overscroll-behavior: contain;
+}
+
+.contwrap{
+width: 972px;
+padding-top: 24px;
+margin: 0 0 32px 224px;
+}
+
+.post-list-container{
+float: left;
+width: 640px;
+}
+
+.form-container{
+float: right;
+padding: 0 0 0 32px;
+width: 300px;
+position: relative;
+}

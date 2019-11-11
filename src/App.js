@@ -11,19 +11,6 @@ import _ from 'lodash';
 import localCache from './localCache';
 
 export default class App extends Component {
-    componentDidMount(){
-        request.get("http://localhost:3001/posts").end((err,res) => {
-            if(res){
-                let { results : posts} = JSON.parse(res.text);
-                api.initialize(posts);
-                //localCache.populate(posts.json);
-                this.setState({});
-            }else{
-                console.log(err);
-            }
-        });
-    }
-
     addPost = (title,user, image,thread) => {
         api.add(title,user,image,thread);
         this.setState({});

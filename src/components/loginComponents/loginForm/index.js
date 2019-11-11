@@ -18,7 +18,7 @@ export default class LoginForm extends Component {
                 <div className="form-group">
                     <input type="password" placeholder="Password" value={this.state.password} ></input>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Post</button>
+                <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Login</button>
             </form>
         );
     }

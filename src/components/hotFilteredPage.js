@@ -9,6 +9,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import _ from 'lodash';
 import localCache from '../localCache';
 import { withRouter } from 'react-router-dom';
+import './hotPage.css'
 
 class HotFilteredPage extends Component {
     componentDidMount(){
@@ -54,14 +55,16 @@ class HotFilteredPage extends Component {
                     <div className="sidebar">
                         <Filter />
                     </div>
-                    <div className="post-list-container">
-                        <PostList posts={posts}
-                        upvoteHandler={this.increasePoints}
-                        downvoteHandler={this.decreasePoints}
-                        deleteHandler={this.deletePost} />
-                    </div>
-                    <div className ="form-container">
-                        <Form handleAdd={this.addPost}/>
+                    <div className="contwrap">
+                        <div className="post-list-container">
+                            <PostList posts={posts}
+                            upvoteHandler={this.increasePoints}
+                            downvoteHandler={this.decreasePoints}
+                            deleteHandler={this.deletePost} />
+                        </div>
+                        <div className ="form-container">
+                            <Form handleAdd={this.addPost}/>
+                        </div>
                     </div>
                 </div>
             </div>

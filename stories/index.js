@@ -25,14 +25,15 @@ const post ={
     ],
     points:4
 };
+
 const comment ={
     id:1,
     user:'harold',
-    comment:'shit comment',
+    comment:'Great Post',
     points: 4,
 }
 
-storiesOf("MemeGarage/Header",module).add("default",() => ( <Header/> ));
+storiesOf("MemeGarage App/Header",module).add("default",() => ( <Header/> ));
 
 storiesOf("MemeGarage App/Filter",module).add("default",() => ( <Filter/> ));
 
@@ -77,7 +78,7 @@ storiesOf("MemeGarage App/Comments/Comment List",module).add("default",() => {
     return (
         <div>
             <CommentList upvoteHandler={action("upvoted")} comments={exampleComments} />
-            <CommentList downvoteHandler= {action("downvoted")} comment={exampleComment}/>
+            <CommentList downvoteHandler= {action("downvoted")} comments={exampleComments}/>
         </div>
     );
 });
