@@ -14,10 +14,10 @@ The MemeGarage Web App written in JS.
 
 ## Setup.
 
-1. npx create-react-app webdev-assgn
-2. cd webdev-assgn
-3. npm install
-4. npx storybook
+1. `npx create-react-app webdev-assgn`
+2. `cd webdev-assgn`
+3. `npm install`
+4. `npx storybook`
 
 ## Data Model Design.
 
